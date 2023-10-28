@@ -13,7 +13,7 @@
 int main(int argc, char *argv[])
 {
 	int result = 0;
-	char c;
+	char *c;
 
 	while (--argc)
 	{
