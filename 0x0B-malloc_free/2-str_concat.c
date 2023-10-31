@@ -28,8 +28,8 @@ char *str_concat(char *s1, char *s2)
 	}
 	if (s2 == NULL)
 	{
-		text = malloc(l2 * sizeof(char));
-		emps(text, s2);
+		text = malloc(l1 * sizeof(char));
+		emps(text, s1);
 		return (text);
 	}
 
@@ -80,11 +80,11 @@ int len(char *str)
 void emps(char *dst, char *src)
 {
 	int i = 0;
+	int l = len(src);
 
-	while (src[i])
+	while (i <= l)
 	{
 		dst[i] = src[i];
 		i++;
 	}
-	dst[i] = '\0';
 }
