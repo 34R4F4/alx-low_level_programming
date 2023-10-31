@@ -9,6 +9,8 @@
  * Return: return
  */
 
+int len(char *str);
+
 char *_strdup(char *str)
 {
 	int l = 0;
@@ -20,11 +22,7 @@ char *_strdup(char *str)
 		return (NULL);
 	}
 
-	while (*str)
-	{
-		str++;
-		l++;
-	}
+	l = len(str);
 
 	text = malloc(l * sizeof(char) + 1);
 
@@ -42,4 +40,20 @@ char *_strdup(char *str)
 		}
 	return (text);
 	}
+}
+
+/**
+ * len - f
+ * @str: 1
+ * Return: r
+ */
+
+int len(char *str)
+{
+	while (*str)
+        {
+                str++;
+                l++;
+        }
+	return (l);
 }
