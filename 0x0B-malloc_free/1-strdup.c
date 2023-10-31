@@ -51,9 +51,9 @@ char *_strdup(char *str)
 int len(char *str)
 {
 	while (*str)
-        {
-                str++;
-                l++;
-        }
+	{
+		str++;
+		l++;
+	}
 	return (l);
 }
