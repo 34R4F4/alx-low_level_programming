@@ -50,6 +50,8 @@ char *_strdup(char *str)
 
 int len(char *str)
 {
+	int l = 0;
+
 	while (*str)
 	{
 		str++;
