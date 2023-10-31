@@ -24,7 +24,7 @@ char *_strdup(char *str)
 
 	l = len(str);
 
-	text = malloc(l * sizeof(char) + 1);
+	text = malloc(l + 1) * sizeof(char));
 
 	if (text == 0)
 	{
@@ -32,10 +32,9 @@ char *_strdup(char *str)
 	}
 	else
 	{
-		while (*str)
+		while (i <= l)
 		{
 			text[i] = str[i];
-			str++;
 			i++;
 		}
 	return (text);
@@ -57,5 +56,6 @@ int len(char *str)
 		str++;
 		l++;
 	}
+	l--;
 	return (l);
 }
