@@ -26,14 +26,12 @@ char *str_concat(char *s1, char *s2)
 		emps(text, s2);
 		return (text);
 	}
-	else if (s2 == NULL || l2 == 0)
+	if (s2 == NULL || l2 == 0)
 	{
 		text = malloc(l1 * sizeof(char));
 		emps(text, s1);
 		return (text);
 	}
-	else
-	{
 
 	text = malloc(l * sizeof(char) + 3);
 
@@ -44,15 +42,13 @@ char *str_concat(char *s1, char *s2)
 	{
 		if (i <= l1)
 			text[i] = s1[i];
-		else if (i >= l1) 
-			text[i] = s2[(i - 1) - l1];
+		else
+			text[i] = s2[i - l1];
 	}
-	text[i] = s2[(i - 1) - l1];
 
-	text[i + 1] = '\0';
+	text[i] = '\0';
 
 	return (text);
-	}
 }
 
 /**
