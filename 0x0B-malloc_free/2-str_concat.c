@@ -20,13 +20,13 @@ char *str_concat(char *s1, char *s2)
 	int i = 0;
 	char *text;
 
-	if (s1 == NULL)
+	if (s1 == NULL || l1 == 0)
 	{
 		text = malloc(l2 * sizeof(char));
 		emps(text, s2);
 		return (text);
 	}
-	if (s2 == NULL)
+	if (s2 == NULL || l2 == 0)
 	{
 		text = malloc(l1 * sizeof(char));
 		emps(text, s1);
