@@ -24,7 +24,7 @@ char *str_concat(char *s1, char *s2)
 	if (s2 == NULL)
 		s2 = '\0';
 
-	text = malloc(l * sizeof(char) + 1);
+	text = malloc(l * sizeof(char) + 3);
 
 	if (text == 0)
 		return (0);
@@ -33,8 +33,6 @@ char *str_concat(char *s1, char *s2)
 	{
 		if (i < l1)
 			text[i] = s1[i];
-		else if (i == l1)
-			text[l1] = s2[0];
 		else
 			text[i] = s2[i - l1];
 	}
