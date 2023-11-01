@@ -15,7 +15,7 @@ char *argstostr(int ac, char **av)
 	int i = 0;
 	int j = 0;
 	int x;
-	char *text;
+	char **text;
 
 	if (ac > 0 || av != NULL)
 	{
@@ -23,13 +23,14 @@ char *argstostr(int ac, char **av)
 		for (i = 0; i <= ac; i++)
 		{
 			x = len(av[i]);
+
 			for (j = 0; j <= x; j++)
 			{
 				text[i][j] = av[i][j];
 			}
 			text[i][j] = '\n';
 		}
-		return (text);
+		return (*text);
 	}
 	else
 	{
