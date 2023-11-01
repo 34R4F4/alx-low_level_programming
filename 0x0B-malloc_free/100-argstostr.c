@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include "main.h"
 
-int len(*str);
+int len(char *str);
 
 /**
  * argstostr - function
@@ -17,7 +17,7 @@ char *argstostr(int ac, char **av)
 	int x;
 	char *text;
 
-	if (av > 0 && ac > 0 && av != NULL)
+	if (ac > 0 || av != NULL)
 	{
 		text = malloc(ac * sizeof(char) + 1);
 		for (i = 0; i <= ac; i++)
@@ -43,7 +43,7 @@ char *argstostr(int ac, char **av)
  * Return: i
  */
 
-int len(*str)
+int len(char *str)
 {
 	int i;
 
