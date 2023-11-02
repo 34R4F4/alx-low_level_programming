@@ -8,9 +8,11 @@
  */
 char **strtow(char *str)
 {
-	if (str != NULL || str != "")
-	{
+	char **s;
 
+	if (str != NULL || str != '\0')
+	{
+		return (s);
 	}
 	else
 	{
