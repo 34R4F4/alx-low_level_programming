@@ -14,15 +14,9 @@ unsigned int len(char *s);
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *text;
-	unsigned int l1 = 0;
-	unsigned int l2 = 0;
+	unsigned int l1 = len(s1);
+	unsigned int l2 = len(s2);
 	unsigned int x = 0;
-
-	for (l1 = 0; s1[l1] != '\0'; l1++)
-		;
-
-	for (l2 = 0; s2[l2] != '\0'; l2++)
-		;
 
 	if (n > l2)
 		n = l2;
@@ -59,4 +53,22 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 		return (text);
 	}
+}
+
+/**
+ * len - f
+ * @s: 1
+ * Return: r
+ */
+
+unsigned int len(char *s)
+{
+	unsigned int i = 0;
+
+	while (s[i] != '\0')
+	{
+		i++;
+	}
+
+	return (i);
 }
