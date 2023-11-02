@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdlib.h>
 
-int len(char *s);
+unsigned int len(char *s);
 
 /**
  * string_nconcat - function
@@ -14,20 +14,20 @@ int len(char *s);
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *text;
-	int l1 = len(s1);
+	unsigned int l1 = len(s1);
 	unsigned int l2 = len(s2);
-	int x = 0;
-	unsigned int i = 0;
+	unsigned int x = 0;
 
-	if ((n > l2) || (s2 == NULL))
-	{
+	if (n > l2)
 		n = l2;
-		text = malloc(l1 + l2 + 1);
-	}
-	else
-	{
-		text = malloc(l1 + n + 1);
-	}
+
+	if (s1 == NULL)
+		s1 = "";
+
+	if (s2 == NULL)
+		s2 = "";
+
+	text = malloc(sizeof(char) * (l1 + n + 1));
 
 	if (text == 0)
 	{
@@ -36,15 +36,20 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	}
 	else
 	{
-		for (x = 0; x <= l1; x++)
+		for (x = 0; x <= (l1 + n); x++)
 		{
-			text[x] = s1[x];
+			if (x <= l1)
+			{
+				text[x] = s1[x];
+			}
+
+			if (x > l1 && x <= n)
+			{
+				text[x] = s2[x - l1 - 1];
+			}
 		}
-		for (i = 0; i <=  n; i++, x++)
-		{
-			text[x] = s2[i];
-		}
-		text[x] = '\0';
+
+		text[l1 + n + 1] = '\0';
 
 		return (text);
 	}
@@ -56,9 +61,9 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
  * Return: r
  */
 
-int len(char *s)
+unsigned int len(char *s)
 {
-	int i = 0;
+	unsigned int i = 0;
 
 	while (s[i] != '\0')
 	{
