@@ -37,12 +37,12 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	{
 		for (x = 0; x <= l1; x++)
 		{
-			text[x] = s1[x]; 
+			text[x] = s1[x];
 		}
 		for (i = 0; i <=  n; i++, x++)
-                {
-                        text[x] = s2[i];
-                }
+		{
+			text[x] = s2[i];
+		}
 		txet[x] = '\0';
 
 		return (text);
