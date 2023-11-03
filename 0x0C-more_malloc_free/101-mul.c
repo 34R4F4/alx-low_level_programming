@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdlib.h>
 
 /**
  * _puts - mzain
@@ -8,12 +9,33 @@
 void _puts(char *s)
 {
 	int i = 0;
+
 	while (s[i])
 	{
 		_putchar(s[i]);
 		i++;
 	}
 }
+
+/**
+ * print_int - f
+ * @n: 1
+ * Return: r
+ */
+void print_int(unsigned long int n)
+{
+	unsigned long int d = 1, i, r;
+
+	for (i = 0; n / d > 9; i++, d *= 10)
+		;
+
+	for (; d >= 1; n %= d, d /= 10)
+	{
+		r = n / d;
+		_putchar('0' + r);
+	}
+}
+
 
 /**
  * _atoi - mzain
@@ -53,7 +75,7 @@ int main(int argc, char *argv[])
 {
 (void)argc;
 
-if (argc !=3)
+if (argc != 3)
 {
 	_puts("Error ");
 	exit(98);
