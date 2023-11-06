@@ -7,8 +7,8 @@
 
 int main(void)
 {
-	char *path = _FILE_;
+	char *path = __FILE__;
 
-	printf("%s\n", *path);
+	printf("%s\n", path);
 	return (0);
 }
