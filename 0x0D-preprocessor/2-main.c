@@ -1,14 +1,12 @@
 #include <stdlib.h>
 
 /**
- * main -f
+ * main - f
  * Return: 0
  */
 
 int main(void)
 {
-	char *path = __FILE__;
-
-	printf("%s\n", path);
+	printf("%s\n", __FILE__);
 	return (0);
 }
