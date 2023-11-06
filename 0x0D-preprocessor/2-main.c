@@ -9,9 +9,6 @@ int main(void)
 {
 	char *path = _FILE_;
 
-	for (int i = 0; path[i] != '\0'; i++)
-	{
-		_putchar(path[i]);
-	}
+	printf("%s\n", path);
 	return (0);
 }
