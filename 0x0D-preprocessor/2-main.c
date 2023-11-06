@@ -9,6 +9,6 @@ int main(void)
 {
 	char *path = _FILE_;
 
-	printf("%s\n", path);
+	printf("%s\n", *path);
 	return (0);
 }
