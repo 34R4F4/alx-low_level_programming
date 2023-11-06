@@ -1,5 +1,6 @@
 #include "main.h"
-
+#include <stddef.h>
+#include <stdlib.h>
 
 /**
  * _realloc - function
@@ -12,7 +13,7 @@
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
 	void *m;
-	int i;
+	unsigned int i;
 
 	if (old_size == new_size)
 		return (ptr);
