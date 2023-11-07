@@ -2,6 +2,7 @@
 
 /**
  * init_dog - create dog
+ * @d: new dog
  * @name: name
  * @age: age
  * @owner: owner
