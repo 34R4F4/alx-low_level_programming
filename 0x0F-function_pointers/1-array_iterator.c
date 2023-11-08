@@ -1,4 +1,4 @@
-
+#include "function_pointers.h"
 /**
  * array_iterator - f
  * @array: 1
