@@ -17,13 +17,13 @@ int main(int argc, char **argv)
 
 	a = atoi(argv[1]);
 	b = atoi(argv[3]);
-	
+
 	op_func = get_op_func(argv[2]);
 
-	if(!op_func)
+	if (!op_func)
 		printf("Error\n"), exit(99);
 
-	if ( b == 0 && (argv[2] == '/' || argv[2] == '%'))
+	if (b == 0 && (argv[2] == '/' || argv[2] == '%'))
 		printf("Error\n"), exit(100);
 
 	result = op_func(a, b);
