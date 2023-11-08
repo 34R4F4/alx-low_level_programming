@@ -1,14 +1,28 @@
 
 /**
- * print_name - f
- * @name: 1
- * @f: 2
+ * int_index - f
+ * @array: 1
+ * @size: 2
+ * @cmp: 3
  * Return: v
  */
-void print_name(char *name, void (*f)(char *))
+int int_index(int *array, int size, int (*cmp)(int))
 {
-	if (name && f)
+	if (size <= 0)
+		return (-1);
+
+	if (array && size)
 	{
-		f(name);
+		int i = 0;
+
+		for (i = 0; i < size; i++)
+		{
+			if (cmp(array[i]))
+				return (i);
+		}
+	}
+	else
+	{
+		return (-1);
 	}
 }
