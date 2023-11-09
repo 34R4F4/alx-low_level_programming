@@ -1,15 +1,32 @@
 #include "variadic_functions.h"
 
 /**
- * print_numbers - check the code
+ * check - f
+ * @s: 1
+ *
+ * Return: str
+ */
+char *check(char *s)
+{
+	if (s)
+	{
+		return (s);
+	}
+	else
+	{
+		return ("nil");
+	}
+}
+
+/**
+ * print_strings - check the code
  * @n: args no.
  * @separator: ", "
  * @...: etc
  *
  * Return: Always 0.
  */
-
-void print_numbers(const char *separator, const unsigned int n, ...)
+void print_strings(const char *separator, const unsigned int n, ...)
 {
 	va_list ptr;
 	unsigned int i;
@@ -26,20 +43,21 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	{
 		if (i == 0)
 		{
-			printf("%d", va_arg(ptr, int));
+			printf("%s", check(va_arg(ptr, char *)));
 		}
 		else if (i == (n - 1))
 		{
 			if (separator)
 				printf("%s", separator);
-			printf("%d\n", va_arg(ptr, int));
+			printf("%s\n", check(va_arg(ptr, char *)));
 		}
 		else
 		{
 			if (separator)
 				printf("%s", separator);
-			printf("%d", va_arg(ptr, int));
+			printf("%s", check(va_arg(ptr, char *)));
 		}
 	}
+	printf("\n");
 	va_end(ptr);
 }
