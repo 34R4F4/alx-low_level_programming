@@ -26,27 +26,21 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	for (i = 0; i < n; i++)
 	{
 		if (i == 0)
+		{
 			printf("%d", va_arg(ptr, int));
-
-		if (i == (n - 1))
+		}
+		else if (i == (n - 1))
 		{
 			if (separator)
 				printf("%s", separator);
-
 			printf("%d\n", va_arg(ptr, int));
-		}
-		if (i > 0 && i < n)
-		{
-		if (!separator)
-		{
-			printf("%d", va_arg(ptr, int));
 		}
 		else
 		{
-			printf("%s%d", separator, va_arg(ptr, int));
+			if (separator)
+				printf("%s", separator);
+			printf("%d", va_arg(ptr, int));
 		}
-		}
-
 	}
 	va_end(ptr);
 }
