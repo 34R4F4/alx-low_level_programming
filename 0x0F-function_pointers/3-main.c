@@ -23,10 +23,10 @@ int main(int argc, char **argv)
 	if (!op_func)
 		printf("Error\n"), exit(99);
 
-	if (b == 0 && (argv[2] == '/' || argv[2] == '%'))
+	if (!b && (argv[2][0] == '/' || argv[2][0] == '%'))
 		printf("Error\n"), exit(100);
 
 	result = op_func(a, b);
-	printf("%d\n", result)'
+	printf("%d\n", result);
 	return (0);
 }
