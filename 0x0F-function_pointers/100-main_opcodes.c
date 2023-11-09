@@ -6,7 +6,7 @@
  * main - f
  * @argc: 1
  * @argv: 2
- * Rrturn: r
+ * Return: r
  */
 
 int main(int argc, char **argv)
