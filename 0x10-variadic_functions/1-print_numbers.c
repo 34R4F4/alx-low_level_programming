@@ -5,6 +5,7 @@
  * print_numbers - check the code
  * @n: args no.
  * @separator: ", "
+ * @...: etc
  *
  * Return: Always 0.
  */
@@ -13,6 +14,12 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 {
 	va_list ptr;
 	unsigned int i;
+
+	if (!n)
+	{
+		printf("\n");
+		return;
+	}
 
 	va_start(ptr, n);
 
