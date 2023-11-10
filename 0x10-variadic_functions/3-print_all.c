@@ -45,6 +45,12 @@ void print_strings(const char *separator, const unsigned int n, ...)
 		{
 			printf("%s", check(va_arg(ptr, char *)));
 		}
+		else if (i == (n - 1))
+		{
+			if (separator)
+				printf("%s", separator);
+			printf("%s\n", check(va_arg(ptr, char *)));
+		}
 		else
 		{
 			if (separator)
