@@ -5,6 +5,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void print_constructor(void)
+
 /**
  * struct list_s - singly linked list
  * @str: string - (malloc'ed string)
