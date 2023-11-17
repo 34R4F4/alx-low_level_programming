@@ -22,7 +22,7 @@ list_t *add_node_end(list_t **head, const char *str)
 			free(new_LNode);
 			return (NULL);
 		}
-		new_LNode->len = _srtl(new_LNode->str);
+		new_LNode->len = _strl(new_LNode->str);
 	}
 
 	if (Nptr)
@@ -32,7 +32,7 @@ list_t *add_node_end(list_t **head, const char *str)
 		Nptr->next = new_LNode;
 	}
 	else
-		*Nptr = new_LNode
+		*head = new_LNode;
 
 	return (new_LNode);
 }
