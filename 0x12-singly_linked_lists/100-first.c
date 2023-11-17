@@ -1,6 +1,6 @@
-#iclude "lists.h"
+#include "lists.h"
 
-void print_constructor(void) __attribute__((constructor))
+void print_constructor(void) __attribute__((constructor));
 /**
  * print_constructor - execute before main
  *

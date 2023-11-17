@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void print_constructor(void)
+/** void print_constructor(void); */
 
 /**
  * struct list_s - singly linked list
