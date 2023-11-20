@@ -13,7 +13,7 @@ size_t print_listint(const listint_t *h)
 	if (h == NULL)
 	{
 		printf("Erorr\n");
-		return (1);
+		return (x);
 	}
 
 	while (h != NULL)
