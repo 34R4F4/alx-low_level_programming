@@ -23,8 +23,6 @@ int _sqrt_guess(int n, int guess)
  */
 int _sqrt_recursion(int n)
 {
-	int r = 0;
-
 	if (n < 0)
 		return (-1);
 	else
