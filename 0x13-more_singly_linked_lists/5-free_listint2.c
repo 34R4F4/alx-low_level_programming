@@ -1,20 +1,18 @@
 #include "lists.h"
 
 /**
- * free_listint - f
+ * free_listint2 - f
  * @head: 1
  * Return: void
  */
 
-void free_listint(listint_t *head)
+void free_listint2(listint_t **head)
 {
-	listint_t *temp_head = *head;
-
-	while (temp_head)
+	while (*head)
 	{
-	listint_t *temp_node = temp_head;
+	listint_t *temp_node = *head;
 
-	temp_head = temp_head->next;
+	*head = (*head)->next;
 	free(temp_node);
 	}
 
