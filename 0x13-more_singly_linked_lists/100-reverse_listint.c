@@ -14,11 +14,6 @@ if (!*head || !head)
 	return (NULL);
 }
 
-if (*head == NULL || (*head)->next == NULL)
-{
-	return (*head);
-}
-
 listint_t *curr = *head;
 listint_t *next = NULL;
 *head = NULL;
