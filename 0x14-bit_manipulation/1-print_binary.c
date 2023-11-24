@@ -7,12 +7,19 @@
  */
 void print_binary(unsigned long int n)
 {
-	if (n == 0)
+	int p = 0;
+	int b = sizeof(n) * 8;
+
+	while (b)
 	{
-		_putchar('0');
-		return;
+		if (n &1L << --b)
+		{
+			_putchar('1');
+			p++;
+		}
+		else if (p)
+			_putchar('0');
 	}
-	print_binary(n >> 1);
-	_putchar(n & 1 ? '1' : '0');
-	return;
+	if (!p)
+		_putchar('0');
 }
