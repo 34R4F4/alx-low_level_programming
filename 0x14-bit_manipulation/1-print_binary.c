@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * binary_binary - f
+ * print_binary - f
  * @n: 1
  * Return: i
  */
