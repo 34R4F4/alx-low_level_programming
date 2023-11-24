@@ -1,6 +1,6 @@
 #include "main.h"
 
-/*
+/**
  * binary_to_uint - f
  * @b: 1
  * Return: i
