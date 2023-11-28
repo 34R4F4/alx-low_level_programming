@@ -17,7 +17,7 @@ int slen(char *s)
 
 /**
  * create_file - f
- * @create_file: 1
+ * @filename: 1
  * @text_content: 2
  * Return: 1/-1
  */
