@@ -9,6 +9,9 @@ int slen(char *s)
 {
 	int l = 0;
 
+	if (!s)
+		return (l);
+
 	while (*s++)
 		l++;
 
