@@ -1,16 +1,16 @@
 #include "main.h"
 
 /**
- * len - f
+ * slen - f
  * @s: 1
  * Return: len
  */
-int len(char *s)
+int slen(char *s)
 {
 	int l = 0;
 
 	while (*s++)
-		i++;
+		l++;
 
 	return (l);
 }
@@ -25,7 +25,7 @@ int create_file(const char *filename, char *text_content)
 {
 	int fo;
 	ssize_t text = 0;
-	ssize_t len = len(text_content);
+	ssize_t len = slen(text_content);
 
 	if (!filename)
 		return (-1);
