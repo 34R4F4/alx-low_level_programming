@@ -264,7 +264,7 @@ void close_ELF(int elf)
 }
 
 /**
- * main - Displays the information contained in the ELF header at the start of an ELF file.
+ * main - Displays the information contained in the ELF header when starts
  * @argc: The number of arguments supplied to the program.
  * @argv: An array of pointers to the arguments vector.
  *
@@ -308,9 +308,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	print_abi(header->ELF_item);
 	print_type(header->ELF_type, header->ELF_item);
 	print_entry(header->e_entry, header->ELF_item);
-
 	free(header);
 	close_ELF(o);
-
 	return (0);
 }
