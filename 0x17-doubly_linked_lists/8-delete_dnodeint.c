@@ -1,4 +1,5 @@
 #include "lists.h"
+
 /**
  * delete_dnodeint_at_index - deletes the node at index index of a linked list.
  * @head: list HEAD.
@@ -15,25 +16,27 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		tmp = tmp->next;
 		len++;
 	}
-	if (len == 0 || index > len)
+
+	if (len == 0 || index >= len)
 		return (-1);
-	if (index == 0)/** HEAD */
+
+	if (index == 0) /** HEAD */
 	{
-		tmp = head;
-		head = head->next;
-		head->prev = NULL;
+		*head = (*head)->next;
+		if (*head != NULL)
+			(*head)->prev = NULL;
 		free(tmp);
 		return (1);
 	}
-	else if (index == len)
+	else if (index == len - 1)
 	{
 		tmp->prev->next = NULL;
 		free(tmp);
 		return (1);
 	}
-	ele if (index > 0 && index < len)
+	else if (index > 0 && index < len)
 	{
-		tmp = head;
+		tmp = *head;
 
 		while (index != 0)
 		{
