@@ -8,43 +8,49 @@
  */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	dlistint_t *new_node;
-	dlistint_t *temp = *h;
-	dlistint_t *current = *h;
-	unsigned int l = 0;
+    dlistint_t *new_node;
+    dlistint_t *temp = *h;
+    dlistint_t *current = *h;
+    unsigned int l = 0;
 
-	while (temp != NULL)
-	{
-		temp = temp->next;
-		l++;
-	}
-	if (idx > l + 1)
-		return (NULL);
+    while (temp != NULL)
+    {
+        temp = temp->next;
+        l++;
+    }
 
-	if (idx == 0)
-		return (add_dnodeint(h, n));
-	if (idx == l + 1)
-		return (add_dnodeint_end(h, n));
+    if (idx > l + 1)
+        return (NULL);
 
-	new_node = malloc(sizeof(dlistint_t));
-	if (!new_node)
-		return (NULL);
-	new_node->n = n;
+    if (idx == 0)
+        return (add_dnodeint(h, n));
 
-	while (current != NULL && idx > 0)
-	{
-		current = current->next;
-		idx -= 1;
-	}
+    if (idx == l + 1)
+        return (add_dnodeint_end(h, n));
 
-	if (current != NULL && idx == 0)
-	{
-		new_node->prev = current->prev;
-		current->prev->next = new_node;
-		new_node->next = current;
+    new_node = malloc(sizeof(dlistint_t));
+    if (!new_node)
+        return (NULL);
 
-		return (new_node);
-	}
-	else
-		return (NULL);
+    new_node->n = n;
+
+    while (current != NULL && idx > 0)
+    {
+        current = current->next;
+        idx -= 1;
+    }
+
+    if (current != NULL && idx == 0)
+    {
+        new_node->prev = current->prev;
+        current->prev->next = new_node;
+        new_node->next = current;
+
+        return (new_node);
+    }
+    else
+    {
+        free(new_node);  // Free the allocated memory if insertion fails
+        return (NULL);
+    }
 }
