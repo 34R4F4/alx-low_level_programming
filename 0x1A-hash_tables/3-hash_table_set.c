@@ -1,6 +1,42 @@
 #include "hash_tables.h"
 
 /**
+ * create_new_node - Creates a new node for the hash table.
+ * @key: Pointer to the key.
+ * @value: Pointer to the value.
+ *
+ * Return: Pointer to the new node, or NULL if allocation fails.
+ */
+hash_node_t *create_new_node(const char *key, const char *value)
+{
+	hash_node_t *new_node;
+
+	if (key == NULL || strcmp(key, "") == 0 || value == NULL)
+		return (NULL);
+
+	new_node = malloc(sizeof(hash_node_t));
+	if (new_node == NULL)
+		return (NULL);
+
+	new_node->key = strdup(key);
+	if (new_node->key == NULL)
+	{
+		free(new_node);
+		return (NULL);
+	}
+
+	new_node->value = strdup(value);
+	if (new_node->value == NULL)
+	{
+		free(new_node->key);
+		free(new_node);
+		return (NULL);
+	}
+
+	new_node->next = NULL;
+	return (new_node);
+}
+/**
  * hash_table_set - Adds or updates an element in the hash table.
  * @ht: Pointer to the hash table.
  * @key: Pointer to the key.
@@ -43,41 +79,4 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	new_node->next = ht->array[index];
 	ht->array[index] = new_node;
 	return (1);
-}
-
-/**
- * create_new_node - Creates a new node for the hash table.
- * @key: Pointer to the key.
- * @value: Pointer to the value.
- *
- * Return: Pointer to the new node, or NULL if allocation fails.
- */
-hash_node_t *create_new_node(const char *key, const char *value)
-{
-	hash_node_t *new_node;
-
-	if (key == NULL || strcmp(key, "") == 0 || value == NULL)
-		return (NULL);
-
-	new_node = malloc(sizeof(hash_node_t));
-	if (new_node == NULL)
-		return (NULL);
-
-	new_node->key = strdup(key);
-	if (new_node->key == NULL)
-	{
-		free(new_node);
-		return (NULL);
-	}
-
-	new_node->value = strdup(value);
-	if (new_node->value == NULL)
-	{
-		free(new_node->key);
-		free(new_node);
-		return (NULL);
-	}
-
-	new_node->next = NULL;
-	return (new_node);
 }
