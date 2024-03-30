@@ -1,0 +1,58 @@
+#!/usr/bin/env make
+
+# Makefile with PHONY targets
+
+# Phony targets - these targets don't represent files, but rather actions
+.PHONY: all clean oclean fclean re
+
+# Compiler and linker options
+CC = gcc
+CFLAGS = -Wall -Wextra -g
+
+# Source files
+SRC = main.c school.c
+
+# Object files - automatically generated from source files
+OBJ = $(SRC:.c=.o)
+
+# Executable name
+NAME = school
+
+# Command for removing files
+RM = rm -f
+
+# Default target: compile the program
+all: $(NAME)
+
+# Link object files to create the executable
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+
+# Remove temporary files
+clean:
+	$(RM) *~ $(NAME)
+
+# Remove object files
+oclean:
+	$(RM) $(OBJ)
+
+# Remove both temporary files and object files
+fclean: clean oclean
+
+# Clean everything and rebuild the program
+re: fclean all
+
+# Compile each source file into an object file
+# -c flag tells the compiler to stop after creating object files
+# -o flag specifies the output file
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Explanation of special variables:
+# $@ : The target of the rule
+# $< : The first prerequisite of the rule
+
+# Explanation of flags:
+# -Wall : Enable most compiler warnings
+# -Wextra : Enable additional compiler warnings
+# -g : Produce debugging information for use by GDB
