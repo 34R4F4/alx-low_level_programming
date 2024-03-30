@@ -1,0 +1,43 @@
+# Compiler and linker options
+CC = gcc
+CFLAGS = -Wall -Werror -Wextra -pedantic
+
+# Source files
+SRC = main.c school.c
+
+# Object files
+OBJ = $(SRC:.c=.o)
+
+# Executable name
+NAME = school
+
+# Command for removing files
+RM = rm -f
+
+# Default target: compile the program
+all: $(NAME)
+
+# Link object files to create the executable
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+
+# Compile each source file into an object file
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Remove temporary files and the executable
+clean:
+	$(RM) *~ $(NAME)
+
+# Remove object files
+oclean:
+	$(RM) $(OBJ)
+
+# Remove temporary files, the executable, and object files
+fclean: clean oclean
+
+# Clean everything and rebuild the program
+re: fclean all
+
+# Rules that should never fail
+.PHONY: all clean oclean fclean re

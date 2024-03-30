@@ -1,0 +1,27 @@
+#!/usr/bin/env make
+# Makefile with PHONY targets
+
+# Phony targets
+.PHONY: clean oclean fclean re
+
+# Variables
+CC = gcc
+CFLAGS = -Wall -Werror -Wextra -pedantic
+SRC = main.c school.c
+OBJ = $(SRC:.c=.o)
+NAME = school
+RM = rm -f
+
+# Targets
+all: $(OBJ)
+	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+
+clean:
+	$(RM) *~ $(NAME)
+
+oclean:
+	$(RM) $(OBJ)
+
+fclean: clean oclean
+
+re: fclean all
