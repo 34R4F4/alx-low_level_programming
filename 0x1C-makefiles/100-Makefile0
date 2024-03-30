@@ -1,0 +1,37 @@
+# Name of the executable
+NAME = school
+
+# Compiler and its flags
+CC = gcc
+CFLAGS = -Wall -Werror -Wextra -pedantic
+
+# Source files
+SRC = main.c school.c
+
+# Object files
+OBJ = $(SRC:.c=.o)
+
+# Command for removing files
+RM = rm -f
+
+# Rules
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
+
+clean:
+	$(RM) $(NAME) *~ *.o
+
+oclean:
+	$(RM) *.o
+
+fclean: clean oclean
+
+re: fclean all
+
+# Dependencies
+$(OBJ): m.h
+
+# Phony targets
+.PHONY: all clean oclean fclean re

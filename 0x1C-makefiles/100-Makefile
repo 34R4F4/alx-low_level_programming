@@ -1,0 +1,41 @@
+#!/usr/bin/env make
+# Advanced Makefile
+
+# Compiler
+CC = gcc
+
+# Source files
+SRC = school.c main.c
+
+# Object files
+OBJ = $(SRC:.c=.o)
+
+# Executable name
+NAME = school
+
+# Compiler flags
+CFLAGS = -Wall -Werror -Wextra -pedantic
+
+# Phony targets
+.PHONY: all clean oclean fclean re
+
+# Default target: build the executable
+all: $(NAME)
+
+# Build the executable, requires m.h and object files
+$(NAME): m.h $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+
+# Clean up Emacs/Vim temporary files and the executable
+clean:
+	$(RM) *~ $(NAME)
+
+# Clean up object files
+oclean:
+	$(RM) $(OBJ)
+
+# Combined clean and oclean
+fclean: clean oclean
+
+# Force recompilation by first cleaning and then rebuilding
+re: fclean all
